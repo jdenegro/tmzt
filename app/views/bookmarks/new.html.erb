@@ -1,0 +1,38 @@
+<h1><%= @list.name %></h1>
+
+<h2>Add New Bookmark</h2>
+
+<%= form_with model: [ @list, @bookmark ] do |form| %>
+  <div>
+    <%= form.label :movie_id %>
+    <%= form.select :movie_id, options_for_select(Movie.all.map{|m| [m.title, m.id]}) %>
+  </div>
+
+  <div>
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div>
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Bookmark" %>
+  </div>
+<% end %>
+
+<h2>Bookmarks</h2>
+
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li>
+      <%= bookmark.movie.title %> - <%= bookmark.url %>
+      <% if bookmark.comment.present? %>
+        <br>
+        <%= bookmark.comment %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

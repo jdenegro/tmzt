@@ -35,12 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_155407) do
     t.string "title"
     t.integer "year"
     t.string "genre"
+    t.string "overview"
     t.float "rating"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "overview"
-    t.index ["user_id"], name: "index_movies_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -68,7 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_155407) do
   add_foreign_key "bookmarks", "lists"
   add_foreign_key "bookmarks", "movies"
   add_foreign_key "lists", "users"
-  add_foreign_key "movies", "users"
   add_foreign_key "reviews", "lists"
   add_foreign_key "reviews", "users"
 end
