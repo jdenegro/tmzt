@@ -7,32 +7,9 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Lists</h3>
+    <p><%= @lists %></p>
     <%= link_to "Create a movie list", new_list_path, class: "btn btn-warning" %>
   </div>
   <div class="row">
-    <% @lists.each do |list| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to list_path(list), class:"text-decoration-none" do %>
-          <%# <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>
-            <%= list.name %>
-          <%# </div> %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Create a new list</h3>
-        <%= simple_form_for @list do |f| %>
-          <%= f.input :name, placeholder: 'Drama' %>
-          <%= f.submit class: 'btn btn-success' %>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>
