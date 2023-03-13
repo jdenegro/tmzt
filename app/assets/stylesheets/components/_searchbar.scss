@@ -1,0 +1,10 @@
+.search-bar {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .search-bar {
+    display: initial;
+    width: 500px;
+  }
+}
