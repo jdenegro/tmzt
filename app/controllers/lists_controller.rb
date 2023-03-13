@@ -9,7 +9,7 @@ class ListsController < ApplicationController
   def index
     # @movies = movie.all
     # raise
-    # @lists = "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    @lists = List.all
 
     # TODO: Save URL with API Key in variable
     # TODO: Use Open URI to access data from URL, use movie_serialized
@@ -18,18 +18,13 @@ class ListsController < ApplicationController
     @movies = JSON.parse(URI.open(url).read)["results"]
     # movie_serialized = URI.open(url).read
     # movie = JSON.parse(movie_serialized)
-    # movie["results"]
-    # * Use the tutorial from Kitt
-    # * Use raise to check data response ALL THE TIME
-    # * If stuck make ticket!!!! :)
-
 
   end
 
   def show
-    # @bookmark = Bookmark.new
+    @bookmark = Bookmark.new
 
-    # @review = Review.new(list: @list)
+    @review = Review.new(list: @list)
   end
 
   def new
@@ -54,7 +49,12 @@ class ListsController < ApplicationController
   private
 
   def set_list
-    @list = List.find(params[:id])
+    # @list = List.find(params[:id])
+    @list = List.find_by(id: params[:id])
+      unless @list
+        flash[:error] = "List not found"
+        # redirect_to root_path
+      end
   end
 
   def list_params
