@@ -10,27 +10,31 @@
   </div>
 
 <section class="container">
-  <div class="my-5">
-    <h1 class="text-center">All Movies</h1>
-  </div>
-
-<div class="row">
-  <div class="movie-list">
-    <% @movies.each do |movie| %>
-      <div class="col-md-4 mb-4">
-      <div class="movie">
-        <% if movie['poster_path'].present? %>
-          <%= image_tag "https://image.tmdb.org/t/p/w400/#{movie['poster_path']}", alt: movie['title'] %>
-        <% else %>
-          <div class="no-image">No Image Available</div>
-        <% end %>
-        <h2><%= movie['title'] %></h2>
-        <p><%= movie['overview'] %></p>
-        <p><strong>Release:</strong> <%= movie['release_date'] %></p>
-        <p><strong>Rated:</strong> <%= movie['vote_average'] %></p>
+  <div class="row my-5">
+    <div class="col-md-9">
+      <h1 class="text-center">All Movies</h1>
+      <div class="row">
+        <div class="movie-list">
+          <% @movies.each do |movie| %>
+            <div class="col-md-4 mb-4">
+              <div class="movie">
+                <% if movie['poster_path'].present? %>
+                  <%= image_tag "https://image.tmdb.org/t/p/w400/#{movie['poster_path']}", alt: movie['title'] %>
+                <% else %>
+                  <div class="no-image">No Image Available</div>
+                <% end %>
+                <h2><%= movie['title'] %></h2>
+                <p><%= movie['overview'] %></p>
+                <p><strong>Release:</strong> <%= movie['release_date'] %></p>
+                <p><strong>Rated:</strong> <%= movie['vote_average'] %></p>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "New Watchlist", new_list_path, class: "btn btn-warning" %>
     </div>
   </div>
 </section>
