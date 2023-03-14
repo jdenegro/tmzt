@@ -9,7 +9,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-auto-rows: minmax(350px, auto);
-    gap: 1rem;
   }
 
   .movie {
@@ -27,11 +26,5 @@
     .movie-list {
     flex-direction: column;
     align-items: center;
-  }
-
-  .movie {
-    flex: none;
-    width: 100%;
-    max-width: 300px;
   }
 }
