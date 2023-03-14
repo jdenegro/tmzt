@@ -23,7 +23,7 @@ class ListsController < ApplicationController
 
   def show
     @bookmark = Bookmark.new
-
+    # @lists = List.name
     @review = Review.new(list: @list)
   end
 
@@ -51,10 +51,10 @@ class ListsController < ApplicationController
   def set_list
     # @list = List.find(params[:id])
     @list = List.find_by(id: params[:id])
-      unless @list
-        flash[:error] = "List not found"
-        # redirect_to root_path
-      end
+    unless @list
+      flash[:error] = "List not found"
+    # redirect_to root_path
+    end
   end
 
   def list_params
