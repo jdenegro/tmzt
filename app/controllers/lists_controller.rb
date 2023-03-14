@@ -8,12 +8,8 @@ class ListsController < ApplicationController
 
   def index
     # @movies = movie.all
-    # raise
     @lists = List.all
 
-    # TODO: Save URL with API Key in variable
-    # TODO: Use Open URI to access data from URL, use movie_serialized
-    # TODO: Parse data into JSON.
     url = "https://api.themoviedb.org/3/discover/movie?api_key=2d904f2ccbadaa1303f4b2e7ea571a93&"
     @movies = JSON.parse(URI.open(url).read)["results"]
     # movie_serialized = URI.open(url).read
