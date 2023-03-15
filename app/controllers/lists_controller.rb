@@ -9,7 +9,6 @@ class ListsController < ApplicationController
   def index
     # @movies = movie.all
     @lists = List.all
-
     url = "https://api.themoviedb.org/3/discover/movie?api_key=2d904f2ccbadaa1303f4b2e7ea571a93&"
     @movies = JSON.parse(URI.open(url).read)["results"]
     # movie_serialized = URI.open(url).read
