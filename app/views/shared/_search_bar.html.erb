@@ -1,0 +1,8 @@
+  <%= form_with method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control", ###### CHANGE ISSO
+      placeholder: "Find a movie"
+    %>
+    <%= submit_tag "Search", class: "btn btn-warning search-hover" %>
+  <% end %>
