@@ -1,8 +1,10 @@
 <section class="container">
-  <button class="button_category" role="button">Horror</button>
+  <% @lists.each do |list| %>
+    <%= link_to list.name, list, class: :button_category %> <%# class: css_class_name can be objects or strings %>
+    <% end %>
   <div class="row my-5">
     <div class="col-md-12">
-      <h1 class="text-center mb-4" style="padding: 10px 0">All Movies</h1>
+      <h1 class="text_movies">All Movies</h1>
       <div class="movie-list">
         <div class="grid-container">
           <% @movies.each do |movie| %>

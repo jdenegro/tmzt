@@ -1,13 +1,3 @@
-<h1><%= @list.name %></h1>
+<h1 class="text_movies"><%= @list.name %> </h1>
 
-<ul>
-  <% @list.bookmarks.each do |bookmark| %>
-    <li>
-      <%= bookmark.title %> - <%= bookmark.url %>
-      <% if bookmark.description.present? %>
-        <br>
-        <%= bookmark.description %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<%= link_to "Add a movie", new_list_bookmark_path(@list) ,class: "btn btn-warning search-hover" %>
