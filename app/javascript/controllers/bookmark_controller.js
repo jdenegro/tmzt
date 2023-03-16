@@ -29,8 +29,8 @@ export default class extends Controller {
         <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}">
         <h3 style="padding: 10px 0">${movie.original_title}</h3>
         <p>${movie.overview}</p>
-        <p><strong>Released:</strong>${movie.release_date}</p>
-        <p><strong>Rated:</strong>${movie.vote_average}</p>
+        <p><strong>Released: </strong> ${movie.release_date}</p>
+        <p><strong>Rated: </strong> ${movie.vote_average}</p>
       </div>`;
     this.moviesListTarget.insertAdjacentHTML("beforeend", movieCard);
   }
