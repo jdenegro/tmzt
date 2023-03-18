@@ -93,5 +93,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Railway config hosts
-  config.hosts << "tmzt-production.up.railway.app"
+  # config.hosts << "tmzt-production.up.railway.app"
+  config.hosts << /[a-z0-9]+\.herokuapp\.com/
 end
